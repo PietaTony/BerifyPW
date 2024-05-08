@@ -16,6 +16,17 @@ buildscript {
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
     }
+    maven {
+        	Properties properties = new Properties()
+		// Load local.properties.
+        	properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
+
+		url properties.getProperty('pwsdk.maven.url')
+		credentials {
+        		username properties.getProperty('pwsdk.maven.username')
+        		password properties.getProperty('pwsdk.maven.password')
+		}
+	}
 }
 
 apply plugin: "com.facebook.react.rootproject"
