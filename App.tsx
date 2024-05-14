@@ -14,7 +14,7 @@ function App(): React.JSX.Element {
     try {
       await WalletSdk.init({
         endpoint: 'https://api.circle.com/v1/w3s/',
-        appId: 'org.reactjs.native.example.BerifyPW',
+        appId: 'com.berify.pw',
         settingsManagement: {
           enableBiometricsPin: false,
           disableConfirmationUI: false,
@@ -22,7 +22,7 @@ function App(): React.JSX.Element {
       });
     } catch (e) {
       // @ts-ignore
-      toast(e.message);
+      console.log(e);
       return;
     }
   };
